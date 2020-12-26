@@ -1,12 +1,12 @@
 import React from 'react'
 import {View, Text} from 'react-native'
 
-const TopRestaurants = ()=>{
+const Books = ()=>{
   return(
     <View>
-      <Text>Restaurantes</Text>
+      <Text>Libros</Text>
     </View>
   )
 }
 
-export default TopRestaurants
+export default Books
