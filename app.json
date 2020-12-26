@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "App React Native",
+    "githubUrl": "https://github.com/stefanygeraldine/5-tenedores.git"
   }
 }
