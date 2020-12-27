@@ -6,6 +6,11 @@ import FavoriteStack from "./FavoriteStack";
 import TopBooksStack from "./TopBooksStack";
 import SearchStack from "./SearchStack";
 import AccountStack from "./AccountStack";
+
+/*import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
+const Tab = createMaterialBottomTabNavigator();*/
+
 const Tab = createBottomTabNavigator()
 import {Icon} from 'react-native-elements'
 const Navigation = ()=>{
