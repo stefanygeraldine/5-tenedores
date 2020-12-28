@@ -1,4 +1,5 @@
 import React from 'react'
+import {StyleSheet} from 'react-native'
 import { NavigationContainer} from "@react-navigation/native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import BooksStack from "./BooksStack";
@@ -6,33 +7,48 @@ import FavoriteStack from "./FavoriteStack";
 import TopBooksStack from "./TopBooksStack";
 import SearchStack from "./SearchStack";
 import AccountStack from "./AccountStack";
+import {palette} from "../../styles/theme";
 
-/*import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-
-const Tab = createMaterialBottomTabNavigator();*/
+const styles = StyleSheet.create({
+  top: {
+    backgroundColor: palette.tertiary.main,
+    position: 'absolute'
+  }
+})
 
 const Tab = createBottomTabNavigator()
 import {Icon} from 'react-native-elements'
+
 const Navigation = ()=>{
   return(
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="Restaurants"
+        initialRouteName="Library"
         tabBarOptions={{
-          inactiveTintColor: "#646464",
-          activeTintColor: "#00A680"
+          /*
+          style: {},
+          tabStyle: {},
+          */
+          style: {
+           // backgroundColor: palette.primary.light
+          },
+
+
+          inactiveTintColor: palette.secondary.main,
+          activeTintColor: palette.primary.main
         }}
         screenOptions={({route})=>{
           return(
             {
               tabBarIcon: ({color}) =>{
-               return screenOptions(route, color)
+                return screenOptions(route, color)
               }
             }
           )
         }}
       >
-        <Tab.Screen name="Libros" component={BooksStack} options={{title:'Libros'}}/>
+        <Tab.Screen style={styles.tab} name="Libros" component={BooksStack} options={{title:'Libros'}}/>
+
         <Tab.Screen name="Favorites" component={FavoriteStack} options={{title:'Favoritos'}}/>
         <Tab.Screen name="TopRestaurants" component={TopBooksStack} options={{title:'Top 5'}}/>
 

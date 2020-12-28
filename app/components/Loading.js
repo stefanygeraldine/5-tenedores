@@ -1,26 +1,32 @@
 import React from "react";
-import { ActivityIndicator, StyleSheet, Text, View} from "react-native";
+import { ActivityIndicator, View, StyleSheet, Image} from "react-native";
 import {Overlay} from 'react-native-elements'
-
+import {palette} from "../../styles/theme";
 
 const styles = StyleSheet.create({
   overlay: {
     height: '100%',
     width: '100%',
-    backgroundColor: '#fff',
-    borderColor: '#00a680',
+
+    borderColor: palette.primary.main,
     borderWidth: 2,
-    borderRadius: 10
   },
   view:{
    // flex: 1,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    borderColor: palette.primary.main,
+    borderWidth: 2,
+    width: 200,
+    height: 200,
+    borderRadius: 200,
+    overflow: 'hidden'
   },
-  text: {
-    color: "#00a680",
-    marginTop: 10
-  }
+  image:{
+    height: 300,
+    width: 300,
+    position: 'relative'
+  },
 })
 const Loading = ({isVisible, text})=>{
 
@@ -29,8 +35,11 @@ const Loading = ({isVisible, text})=>{
   return(
     <Overlay isVisible={isVisible} style={styles.overlay}>
       <View style={styles.view}>
-        <ActivityIndicator size="large" color="#00a680"/>
-        { text && <Text style={styles.text}>{text}</Text> }
+        <Image
+          style={styles.image}
+          source={require("../../assets/library/loading.gif")}
+          resizeMode="contain"
+        />
       </View>
     </Overlay>
   )
